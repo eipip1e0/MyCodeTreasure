@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyCodeTreasure"
 include(":app")
- 
+include(":ei-opengl")
