@@ -1,5 +1,6 @@
 pluginManagement {
     repositories {
+        maven(url = "local-plugin-repo")
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -22,3 +23,4 @@ dependencyResolutionManagement {
 rootProject.name = "MyCodeTreasure"
 include(":app")
 include(":ei-opengl")
+include(":plugin")

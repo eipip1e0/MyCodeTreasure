@@ -9,6 +9,7 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.2.0"
+helloPlugin = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -24,4 +25,5 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+helloWorldPlugin = { id = "com.ei.plugin.hello", version.ref = "helloPlugin" }
 
