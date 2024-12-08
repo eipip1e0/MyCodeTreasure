@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.helloWorldPlugin)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -48,6 +49,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(project(":ei-opengl"))
+    implementation(project(":ei-datamapper:android"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

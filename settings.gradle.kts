@@ -24,3 +24,7 @@ rootProject.name = "MyCodeTreasure"
 include(":app")
 include(":ei-opengl")
 include(":plugin")
+include(":ei-datamapper")
+include(":ei-datamapper:annotation")
+include(":ei-datamapper:compiler")
+include(":ei-datamapper:android")
