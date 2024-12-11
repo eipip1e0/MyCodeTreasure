@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(project(":ei-opengl"))
     implementation(project(":ei-datamapper:android"))
+    implementation(project(":ei-mergeviewbinding:android"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

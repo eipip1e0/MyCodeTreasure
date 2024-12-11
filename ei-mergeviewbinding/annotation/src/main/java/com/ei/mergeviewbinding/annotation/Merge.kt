@@ -1,5 +1,5 @@
-package com.ei.datamapping.annotation
+package com.ei.mergeviewbinding.annotation
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)
-annotation class Mapper
+annotation class Merge
