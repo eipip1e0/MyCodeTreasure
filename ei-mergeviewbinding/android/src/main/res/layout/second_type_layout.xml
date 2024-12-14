@@ -28,7 +28,11 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
+<!--    <include-->
+<!--        android:id="@+id/include1"-->
+<!--        layout="@layout/second_include"/>-->
+
     <include
-        android:id="@+id/include1"
-        layout="@layout/second_include"/>
+        android:id="@+id/include2"
+        layout="@layout/second_include2"/>
 </LinearLayout>

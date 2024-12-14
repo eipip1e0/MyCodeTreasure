@@ -31,4 +31,8 @@
     <include
         android:id="@+id/include1"
         layout="@layout/first_include"/>
+
+<!--    <include-->
+<!--        android:id="@+id/include2"-->
+<!--        layout="@layout/first_include2"/>-->
 </LinearLayout>

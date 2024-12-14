@@ -55,25 +55,6 @@ android {
             }
         }
     }
-//    androidComponents {
-//        onVariants(selector().all()) { variant ->
-//            afterEvaluate {
-//                // This is a workaround for https://issuetracker.google.com/301244513 which depends on internal
-//                // implementations of the android gradle plugin and the ksp gradle plugin which might change in the future
-//                // in an unpredictable way.
-//                val task = project.tasks.getByName("ksp" + variant.name.capitalize() + "Kotlin")
-//
-//                val buildConfigTask =
-//                    project.tasks.getByName("generate" + variant.name.capitalize() + "BuildConfig") as? com.android.build.gradle.tasks.GenerateBuildConfig
-//
-//                buildConfigTask?.sourceOutputDir?.let {
-//                    (task as AbstractKotlinCompileTool<*>).setSource(
-//                        it
-//                    )
-//                }
-//            }
-//        }
-//    }
 }
 
 dependencies {
