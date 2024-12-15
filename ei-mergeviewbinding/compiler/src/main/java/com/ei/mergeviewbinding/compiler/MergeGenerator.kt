@@ -11,10 +11,7 @@ import com.google.devtools.ksp.processing.Dependencies
 import com.google.devtools.ksp.processing.Resolver
 import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
 import com.google.devtools.ksp.symbol.KSClassDeclaration
-import com.google.devtools.ksp.symbol.KSDeclaration
 import com.google.devtools.ksp.symbol.KSPropertyDeclaration
-import com.google.devtools.ksp.symbol.KSType
-import com.google.devtools.ksp.symbol.KSTypeReference
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
@@ -34,7 +31,10 @@ import java.io.OutputStreamWriter
  */
 class MergeGenerator(private val env: SymbolProcessorEnvironment) {
 
+    private lateinit var mDependencies: Set<KSClassDeclaration>
+
     fun generate(resolver: Resolver, mapperTypes: Set<KSClassDeclaration>) {
+        mDependencies = mapperTypes
         mapperTypes.forEach classForEach@{ mapperClass: KSClassDeclaration ->
             // 获取注解类中的所有方法
             // 获取方法注解 name 作为名称
@@ -272,30 +272,16 @@ class MergeGenerator(private val env: SymbolProcessorEnvironment) {
             .addType(typeSpecBuilder.build())
             .build().toString().replace(": Nothing", "")
 
+        // 如果 originatingFiles 参数不配置，则产物会在第二次编译直接清楚掉，文件清理条件:
+        // 1. originatingFiles 为空集合
+        // 2. 注解注释的对象不存在了
         val outputStream = env.codeGenerator.createNewFile(
-            Dependencies(false),
+            Dependencies(false, *mDependencies.mapNotNull { it.containingFile }.toTypedArray()),
             getChildMergeClassName(mergeClassData).packageName,
             getChildMergeClassName(mergeClassData).simpleName
         )
         val writer = OutputStreamWriter(outputStream)
         writer.write(text)
         writer.close()
-    }
-
-    private fun isPrimitiveType(typeReference: KSTypeReference): Boolean {
-        val type: KSType = typeReference.resolve()
-        val declaration: KSDeclaration = type.declaration
-        val simpleName = declaration.simpleName.asString()
-        return simpleName in listOf(
-            "Byte",
-            "Short",
-            "Int",
-            "Long",
-            "Float",
-            "Double",
-            "Boolean",
-            "Char",
-            "String"
-        )
     }
 }

@@ -2,7 +2,7 @@ package com.ei.mergeviewbinding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ei.mergeviewbinding.databinding.FirstTypeLayoutBinding
+import com.ei.mergeviewbinding.databinding.SecondTypeLayoutBinding
 import com.ei.mergeviewbinding.merge.FirstSecondTypeLayoutBinding
 
 class MergeViewBindingActivity : AppCompatActivity() {
@@ -12,7 +12,7 @@ class MergeViewBindingActivity : AppCompatActivity() {
         mBinding =
             FirstSecondTypeLayoutBinding(
                 layoutInflater,
-                FirstTypeLayoutBinding::class.java
+                SecondTypeLayoutBinding::class.java
             )
         setContentView(mBinding.rootView)
     }
